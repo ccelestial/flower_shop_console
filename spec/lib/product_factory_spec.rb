@@ -22,12 +22,16 @@ describe ProductFactory do
       ])
     }
 
-    it 'returns array of products equal to number of ArrayProducts.get' do
+    it 'returns array of products count equal to ArrayProducts' do
       expect(ProductFactory.get.count).to eq(1)
     end
 
-    it 'returns array of products with bundles' do
+    it 'returns array of products with name same as ArrayProducts' do
       expect(ProductFactory.get.first.name).to eq("Rose")
+    end
+
+    it 'returns array of products with bundle.count equal to ArrayProducts' do
+      expect(ProductFactory.get.first.bundles.count).to eq(2)
     end
   end
 end
