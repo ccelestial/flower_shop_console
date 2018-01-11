@@ -1,5 +1,5 @@
 require './data/array_products'
-require 'product'
+require_relative 'product'
 
 class ProductFactory
   def self.get

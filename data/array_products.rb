@@ -2,7 +2,7 @@ class ArrayProducts
   def self.get
     [
       {
-        name: "Rose",
+        name: "Roses",
         code: "R12",
         bundles: [
           {

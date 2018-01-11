@@ -6,7 +6,7 @@ describe ProductFactory do
     before {
       allow(ArrayProducts).to receive(:get).and_return([
         {
-          name: "Rose",
+          name: "Roses",
           code: "R12",
           bundles: [
             {
@@ -27,7 +27,7 @@ describe ProductFactory do
     end
 
     it 'returns array of products with name same as ArrayProducts' do
-      expect(ProductFactory.get.first.name).to eq("Rose")
+      expect(ProductFactory.get.first.name).to eq("Roses")
     end
 
     it 'returns array of products with bundle.count equal to ArrayProducts' do

@@ -20,12 +20,12 @@ describe Item do
   end
 
   describe '.product_from_products' do
-    before { allow_any_instance_of(Product).to receive(:name).and_return("Rose") }
+    before { allow_any_instance_of(Product).to receive(:name).and_return("Roses") }
     before { allow_any_instance_of(Product).to receive(:code).and_return("R12") }
     let(:products) { [ Product.new, Product.new ] }
 
     it 'returns the product.name with product_code from list of products' do
-      expect(item.product_from_products(products).name).to eq("Rose")
+      expect(item.product_from_products(products).name).to eq("Roses")
     end
 
     it 'returns the product.code with product_code from list of products' do
