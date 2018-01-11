@@ -1,10 +1,12 @@
 require_relative 'product_factory'
 require_relative 'order'
+require_relative 'best_bundle'
 
 class Interface
   def initialize
     @products = ProductFactory.get
     @order = Order.new
+    @best_bundle = BestBundle.new
   end
 
   def open
@@ -12,7 +14,7 @@ class Interface
 
     get_order_items
 
-    puts @order.items.map(&:product_code)
+    puts order_display
   end
 
   private
@@ -22,9 +24,8 @@ class Interface
     loop do
       input = gets.chomp
 
-      @order.add_item(input)
-
       break if input.downcase == "x"
+      @order.add_item(input)
     end
   end
 
@@ -37,5 +38,38 @@ class Interface
       end.join("\t\t")
     end
     view.join("#{27.times.map{ "-" }.join}\n") + "\n"
+  end
+
+  def order_display
+    view = ["\nORDER SUMMARY:"]
+    @order.items.each do |item|
+      product = @products.select{ |p| p.code == item.product_code }.first
+
+      if product.nil?
+        view << "#{item.quantity} #{item.product_code} -> Invalid Product Code"
+        next
+      end
+
+      bundles = product.bundles
+      best_bundle = @best_bundle.get(bundles.map(&:quantity), item.quantity)
+
+      if best_bundle.nil?
+        view << "#{item.quantity} #{item.product_code} -> Invalid Quantity"
+        next
+      end
+
+      sub_total = 0.0
+      result = best_bundle.uniq.inject([]) do |result, bb|
+        bundle_count = best_bundle.count(bb)
+        total_bundle_price = (bundles.select{ |b| b.quantity == bb }.first.price * bundle_count).ceil(2)
+        sub_total += total_bundle_price
+
+        result << "\t#{bundle_count} x #{bb} $%.2f" % total_bundle_price
+      end
+
+      view << "#{item.quantity} #{item.product_code} $%.2f" % sub_total.ceil(2)
+      view += result
+    end
+    view.join("\n")
   end
 end
