@@ -2,53 +2,26 @@ class ArrayProducts
   def self.get
     [
       {
-        name: "Roses",
-        code: "R12",
+        name: "Roses", code: "R12",
         bundles: [
-          {
-            quantity: 5,
-            price: 6.99
-          },
-          {
-            quantity: 10,
-            price: 12.99
-          },
+          { quantity: 5, price: 6.99 },
+          { quantity: 10, price: 12.99 },
         ]
       },
       {
-        name: "Lilies",
-        code: "L09",
+        name: "Lilies", code: "L09",
         bundles: [
-          {
-            quantity: 3,
-            price: 9.95
-          },
-          {
-            quantity: 6,
-            price: 16.95
-          },
-          {
-            quantity: 9,
-            price: 24.95
-          },
+          { quantity: 3, price: 9.95 },
+          { quantity: 6, price: 16.95 },
+          { quantity: 9, price: 24.95 },
         ]
       },
       {
-        name: "Tulips",
-        code: "T58",
+        name: "Tulips", code: "T58",
         bundles: [
-          {
-            quantity: 3,
-            price: 5.95
-          },
-          {
-            quantity: 5,
-            price: 9.95
-          },
-          {
-            quantity: 9,
-            price: 16.99
-          },
+          { quantity: 3, price: 5.95 },
+          { quantity: 5, price: 9.95 },
+          { quantity: 9, price: 16.99 },
         ]
       }
     ]
