@@ -47,8 +47,8 @@ Each order has a series of lines with each line containing the number of items f
 
 An example input:
 ```
-10 R12 
-15 L09 
+10 R12
+15 L09
 13 T58
 ```
 
@@ -56,10 +56,10 @@ An example input:
 A successfully passing test(s) that demonstrates the following output: (The format of the output is not important)
 ```
 10 R12 $12.99
-        1 x 10 $12.99 
+        1 x 10 $12.99
 15 L09 $41.90
         1 x 9 $24.95
-        1 x 6 $16.95 
+        1 x 6 $16.95
 13 T58 $25.85
         2 x 5 $9.95
         1 x 3 $5.95
@@ -67,4 +67,4 @@ A successfully passing test(s) that demonstrates the following output: (The form
 
 ### Credits
 
-Thanks to [bbp-labs](https://github.com/bbp-labs) for their solution for of combination sum. Check the code [here](https://github.com/bbp-labs/leetcode/blob/master/algorithms/combination_sum.rb).
+Thanks to [bbp-labs](https://github.com/bbp-labs) for their combination sum solution. Check the code [here](https://github.com/bbp-labs/leetcode/blob/master/algorithms/combination_sum.rb).
